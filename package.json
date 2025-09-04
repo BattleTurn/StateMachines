@@ -16,5 +16,6 @@
     "email": "dev@playad.example",
     "url": "https://github.com/BattleTurn/StateMachines.git"
   },
+  "hideInEditor": false,
   "dependencies": {}
 }

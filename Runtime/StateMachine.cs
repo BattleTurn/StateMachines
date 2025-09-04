@@ -24,6 +24,16 @@ namespace BattleTurn.StateMachines
             _currentState.OnEnter();
         }
 
+        public void ChangeState(IState newState)
+        {
+            if (_currentState != null)
+                _currentState.OnExit();
+
+            _states[newState.GetType()] = newState;
+            _currentState = newState;
+            _currentState.OnEnter();
+        }
+
         // Update loop
         public void Tick()
         {
