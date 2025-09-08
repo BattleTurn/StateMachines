@@ -8,6 +8,17 @@ namespace BattleTurn.StateMachines
         private IState _currentState;
         private Dictionary<Type, IState> _states = new();
 
+        public bool TryGetCurrentState<T>(out T state) where T : IState
+        {
+            if (_currentState is not T)
+            {
+                state = default;
+                return false;
+            }
+            state = (T)_currentState;
+            return true;
+        }
+
         // Register a state
         public void AddState(IState state)
         {
